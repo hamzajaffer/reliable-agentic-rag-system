@@ -1,0 +1,34 @@
+[
+  {
+    "question": "What is the main purpose of the RAG pipeline?",
+    "ground_truth": "The RAG pipeline retrieves relevant code context using hybrid search and generates answers using an LLM, with verification and self-healing for quality."
+  },
+  {
+    "question": "How does the hybrid retriever combine search results?",
+    "ground_truth": "The hybrid retriever uses Reciprocal Rank Fusion (RRF) to combine BM25 keyword search and vector similarity search results, then deduplicates and reranks."
+  },
+  {
+    "question": "What does the code chunker extract from Python files?",
+    "ground_truth": "The AST-based chunker extracts functions, classes, and methods with metadata including docstrings, imports, function calls, decorators, arguments, and return types."
+  },
+  {
+    "question": "How does the agent decide which tool to use?",
+    "ground_truth": "The agent planner uses an LLM to select the best tool based on the query type. Available tools include code search, dependency finder, function explainer, and the full RAG pipeline."
+  },
+  {
+    "question": "What happens when the confidence score is low?",
+    "ground_truth": "When confidence is below the threshold, the self-healing loop triggers: it expands retrieval, regenerates the answer with multiple attempts, and selects the best result."
+  },
+  {
+    "question": "How does semantic caching differ from Redis caching?",
+    "ground_truth": "Redis cache uses exact query matching, while semantic cache uses embedding similarity to find cached answers for semantically similar queries with a cosine similarity threshold of 0.92."
+  },
+  {
+    "question": "Why use cross-encoder reranking?",
+    "ground_truth": "Cross-encoder reranking improves precision by rescoring the top candidates from retrieval. Vector search optimizes for recall, reranking optimizes for precision, typically improving answer quality 20-40%."
+  },
+  {
+    "question": "What is the purpose of query decomposition?",
+    "ground_truth": "Query decomposition breaks complex questions into atomic sub-questions that can be answered independently, improving retrieval for multi-part queries."
+  }
+]
